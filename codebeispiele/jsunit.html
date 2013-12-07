@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="jsUnitCore.js"></script>
+        <script type="text/javascript" src="myCode.js"></script>
+        <script type="text/javascript">
+
+            var counter;
+
+            function setUp() {
+                counter = 1
+            }
+
+            function testAddition() {
+                assertEquals(2, counter + 1);
+            }
+
+            function testFalseAddition() {
+                assertNotEquals(3, counter + 1);
+            }
+
+            function tearDown() {
+                counter = null;
+            }
+
+        </script>
+    </head>
+    <body></body>
+</html>
