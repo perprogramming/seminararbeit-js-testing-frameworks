@@ -1,0 +1,1 @@
+java -jar JsTestDriver.jar --tests all --testOutput result.xml

@@ -1,0 +1,1 @@
+phantomjs /pfad/zum/test.js

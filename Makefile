@@ -1,5 +1,5 @@
 DOCUMENT_NAME = Arbeit
-XELATEX = xelatex
+XELATEX = xelatex --shell-escape
 
 default: 
 	@echo 'make all    | Erstelle das komplette Dokument inklusive bib-Datei für das Literaturverzeichnis'
@@ -8,15 +8,15 @@ default:
 	@echo 'make clean  | Säubere das Arbeitsverzeichnis von temporären Dateien und Verzeichnissen.'
 
 
-all: doc bib doc_twice
+all: clean doc bib doc_twice
 
 bib: 
 	bibtex $(DOCUMENT_NAME)
 
 doc: 
 	$(XELATEX) $(DOCUMENT_NAME).tex
-
-doc_twice: 
+	
+doc_twice:
 	$(XELATEX) $(DOCUMENT_NAME).tex
 	$(XELATEX) $(DOCUMENT_NAME).tex
 
