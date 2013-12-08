@@ -1,111 +1,43 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Copyright Free Software Lab, 2011                                                %
-%                                                                                  %
-% Dieses Programm ist freie Software. Sie können es unter den Bedingungen der      %
-% GNU General Public License, wie von der Free Software Foundation veröffentlicht, % 
-% weitergeben und/oder modifizieren, entweder gemäß Version 3 der Lizenz oder      %
-% (nach Ihrer Option) jeder späteren Version.                                      %
-%                                                                                  %
-% Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, daß es Ihnen      %
-% von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die implizite    %
-% Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK.      %
-% Details finden Sie in der GNU General Public License.                            %
-%                                                                                  %
-% Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem      %
-% Programm erhalten haben. Falls nicht, siehe <http://www.gnu.org/licenses/>.      %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Anfang                                         %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[a4paper,11pt,smallheadings,headsepline,titlepage,liststotoc,idxtotoc,bibtotoc,bibliography=totocnumbered]{scrartcl}
 \include{Meta}
 \usepackage{aussehen/hbrs-inf}
 \usepackage{minted}
 \usepackage{aussehen/code-styles}
-\newcommand{\secDir}{abschnitte} % configure section directory
+\newcommand{\secDir}{abschnitte}
+
 \begin{document}
-\begin{spacing}{1}
-  \pagenumbering{roman}
+	\begin{spacing}{1}
+		\pagenumbering{roman}
 
+		\pagestyle{empty}
+		\include{\secDir/Deckblatt}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Deckblatt                                      %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagestyle{empty}
-\include{\secDir/Deckblatt}
+		\pagestyle{bisHauptteil}
+		\include{\secDir/Erklaerung}
+		\tableofcontents
+		\newpage
+		\listoffigures
+		\include{\secDir/Abkuerzungsverzeichnis}
+		\newpage
+	\end{spacing}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Erklärung
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagestyle{bisHauptteil}
-\include{\secDir/Erklaerung}
+	\pagestyle{Hauptteil}
+	\setcounter{page}{1}
+	\pagenumbering{arabic}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Inhaltsverzeichnis                             %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\tableofcontents 
-\newpage 
+	\include{\secDir/Einleitung}
+	\newpage
+	\include{\secDir/Stand_Forschung}
+	\newpage
+	\include{\secDir/Javascript_Testing}
+	\newpage
+	\include{\secDir/Fallbeispiel}
+	\newpage
+	\include{\secDir/Fazit}
+	\newpage
+	\renewcommand\refname{Literaturverzeichnis}
+	\bibliography{Literaturverzeichnis}
+	\newpage
+	\include{\secDir/Anhang}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Abbildungsverzeichnis                          %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\listoffigures
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Abkürzungsverzeichnis                          %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\include{\secDir/Abkuerzungsverzeichnis}
-\newpage
-\end{spacing}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Einleitung                                     %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagestyle{Hauptteil}
-\setcounter{page}{1}
-\pagenumbering{arabic} 
-\include{\secDir/Einleitung} 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Stand der Forschrung                           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-\include{\secDir/Stand_Forschung}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Javascript Testing                             %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-\include{\secDir/Javascript_Testing}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Fallbeispiel                                   %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-\include{\secDir/Fallbeispiel}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Fazit                                          %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-\include{\secDir/Fazit}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Literaturverzeichnis                           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-% Literaturverzeichnis soll nicht nur Literatur heißen
-\renewcommand\refname{Literaturverzeichnis}
-\bibliography{Literaturverzeichnis}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Anhang                                         %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-\include{\secDir/Anhang}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Ende                                           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
