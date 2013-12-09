@@ -1,1 +1,105 @@
 \section{Fallbeispiel}
+
+Im Folgenden soll nun ein vollständiges Beispiel einer Javascript-Anwendung und entsprechender Test-Definitionen gegeben werden.
+Bei der Anwendung handelt es sich um einen sehr reduzierten Taschenrechner, der lediglich in der Lage ist, zwei Zahlen zu addieren. Der Anwendungs-Code glieder sich dabei in folgende Klassen:
+
+\subsection{Calculator}
+
+Die Klasse Calculator stellt den eigentlichen Taschenrechner dar. Er wird mit einer bestimmten Rechenoperation erzeugt. Zusätzlich erhält er zwei Objekte, die ihm die beiden Operanden zur Verfügung stellen, und ein Objekt, an das er das Ergebnis übermitteln kann:
+
+\begin{figure}[H]
+	\begin{center}
+		\javascriptfile{fallbeispiel/src/Calculator.js}
+		\caption{Die Klasse Calculator}
+		\label{code:calculator}
+	\end{center}
+\end{figure}
+
+\subsection{Addition}
+
+Die Klasse Addition stellt eine mögliche Operation innerhalb des Taschenrechners dar. Die Klasse erhält zwei Zahlen und liefert deren Summe zurück:
+
+\begin{figure}[H]
+	\begin{center}
+		\javascriptfile{fallbeispiel/src/Addition.js}
+		\caption{Die Klasse Addition}
+		\label{code:addition}
+	\end{center}
+\end{figure}
+
+\subsection{HtmlInputOperantSource}
+
+Die Klasse HtmlInputOperantSource erlaubt es, einen Operanden aus einem HTML-Input-Element auszulesen. Sie wird dafür mit dem entsprechenden DOM-Element erzeugt und liest den Wert von dessen value-Eigenschaft aus. Anschließend versucht es, den Wert als Integer zu parsen und zurückzugeben:
+
+\begin{figure}[H]
+	\begin{center}
+		\javascriptfile{fallbeispiel/src/HtmlInputOperantSource.js}
+		\caption{Die Klasse HtmlInputOperantSource}
+		\label{code:inputoperant}
+	\end{center}
+\end{figure}
+
+\subsection{HtmlDivResultTarget}
+
+Die Klasse HtmlDivResultTarget dient dazu, das Ergebnis einer Berechnung in einem DIV-Element anzuzeigen:
+
+\begin{figure}[H]
+	\begin{center}
+		\javascriptfile{fallbeispiel/src/HtmlDivResultTarget.js}
+		\caption{Die Klasse HtmlDivResultTarget}
+		\label{code:resulttarget}
+	\end{center}
+\end{figure}
+
+\subsection{Unit-Tests}
+
+Die Klassen und ihr Verhalten lassen sich zunächst sehr leicht mit entsprechenden Unit-Tests abdecken. Dabei wird der Zugriff auf das DOM (HTML-Input zur Eingabe und DIV-Element zur Ausgabe) und auf andere Module jeweils einfach komplett durch Mock-Objekte ersetzt:
+
+\begin{figure}[H]
+	\begin{center}
+		\javascriptfile{fallbeispiel/test/CalculatorTest.js}
+		\caption{Test der Klasse Calculator}
+		\label{code:calculatortest}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\javascriptfile{fallbeispiel/test/AdditionTest.js}
+		\caption{Test der Klasse Addition}
+		\label{code:additiontest}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\javascriptfile{fallbeispiel/test/HtmlInputOperantSourceTest.js}
+		\caption{Test der Klasse HtmlInputOperantSource}
+		\label{code:inputsourcetest}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\javascriptfile{fallbeispiel/test/HtmlDivResultTargetTest.js}
+		\caption{Test der Klasse HtmlDivResultTarget}
+		\label{code:resulttargettest}
+	\end{center}
+\end{figure}
+
+\subsection{Integrationstest}
+
+Natürlich ist es aber auch möglich, eine echte HTML-Seite zu definieren, die die Komponenten integriert. Diese Seite ließe sich dann, wenn auch langsam, mit Hilfe eines Webdrivers abfragen und testen.
+
+\begin{figure}[H]
+	\begin{center}
+		\htmlfile{fallbeispiel/src/integration.html}
+		\caption{Integration aller Komponenten}
+		\label{code:htmlintegration}
+	\end{center}
+\end{figure}
+
+
+
+
+

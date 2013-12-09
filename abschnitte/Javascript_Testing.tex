@@ -34,7 +34,7 @@ Um den Test-Case auszuführen, bietet JsUnit einen Test-Runner, den man als HTML
 	\end{center}
 \end{figure}
 
-JsUnit bietet von Haus aus keine Möglichkeit, den Test-Case in einem Headless- Javascript-Interpreter auszuführen. Dadurch ist eine einfache, automatisierte Ausführung der Tests nicht möglich. Zudem bietet das Framework keine Möglichkeit, die Test-Cases in Test-Suiten zu organisieren. Die Entwicklung von JsUnit wurde inzwischen eingestellt.
+JsUnit bietet von Haus aus keine Möglichkeit, den Test-Case in einem Headless- Javascript-Interpreter auszuführen. Dadurch ist eine einfache, automatisierte Ausführung der Tests nicht möglich. Zudem bietet das Framework keine Möglichkeit, die Test-Cases in Test-Suiten zu organisieren. Die Entwicklung von JsUnit wurde inzwischen eingestellt \citep[Vgl.][]{Pivotal12}.
 
 \subsubsection{YUI Test}
 
@@ -54,7 +54,7 @@ YUI ist ein Framework zur Erstellung von interaktiven Webanwendungen. Teil diese
 	\label{code:yui}
 \end{figure}
 
-Wie man sehen kann, bietet YUI-Test einige Vorteile gegenüber JsUnit. Zum einen lassen sich die Tests besser beschreiben, da der Test- und der Test-Case-Name eine einfache Zeichenkette sind und keine Funktions- bzw. Dateinamen sein müssen. Es gibt außerdem die Möglichkeit, für fehlschlagende Tests eine Fehlerbeschreibung anzugeben. Die Test-Cases lassen sich zudem nach Belieben in Test-Suiten organisieren. Im Beispiel wird außerdem gezeigt, wie man die Testergebnisse z.B. als XML ausgeben kann. Der YUI-Test-Runner lässt sich also nicht nur innerhalb eines Browser sondern auch von einem Headless-Javascript-Interpreter ausführen.
+Wie man sehen kann, bietet YUI-Test einige Vorteile gegenüber JsUnit. Zum einen lassen sich die Tests besser beschreiben, da der Test- und der Test-Case-Name eine einfache Zeichenkette sind und keine Funktions- bzw. Dateinamen sein müssen. Es gibt außerdem die Möglichkeit, für fehlschlagende Tests eine Fehlerbeschreibung anzugeben. Die Test-Cases lassen sich zudem nach Belieben in Test-Suiten organisieren. Im Beispiel wird außerdem gezeigt, wie man die Testergebnisse z.B. als XML ausgeben kann. Der YUI-Test-Runner lässt sich also nicht nur innerhalb eines Browser sondern auch von einem Headless-Javascript-Interpreter ausführen \citep[Vgl.][]{Yahoo13}.
 
 \subsubsection{Jasmine}
 
@@ -66,7 +66,7 @@ Wie man sehen kann, bietet YUI-Test einige Vorteile gegenüber JsUnit. Zum einen
 	\end{center}
 \end{figure}
 
-Jasmine ist ein recht neues Modultest-Framework. Genau wie YUI-Test lassen sich Tests leicht beschreiben und gruppieren. Die Tests lassen sich ebenfalls sowohl in Browsern als auch in Headless-Interpretern ausführen. Im Gegensatz zu YUI bricht es aber mit der gewohnten xUnit-Syntax, um die Lesbarkeit der Tests zu erhöhen:
+Jasmine ist ein recht neues Modultest-Framework. Genau wie YUI-Test lassen sich Tests leicht beschreiben und gruppieren. Die Tests lassen sich ebenfalls sowohl in Browsern als auch in Headless-Interpretern ausführen. Im Gegensatz zu YUI bricht es aber mit der gewohnten xUnit-Syntax, um die Lesbarkeit der Tests zu erhöhen \citep[Vgl.][]{Pivotal13}:
 
 \begin{figure}[H]
 	\begin{center}
@@ -90,7 +90,7 @@ Da Javascript (egal ob server- und/oder clientseitig eingesetzt) vor allem zur E
 	\end{center}
 \end{figure}
 
-Bei Phantom-JS handelt es sich um einen sogenannten Headless-Browser. So werden Browser genannt, die alle Funktionen eines Browsers bieten, dabei aber über keine graphische Ausgabe verfügen. Sie bieten sich also vor allem für eine programmatische Verwendung an.
+Bei Phantom-JS handelt es sich um einen sogenannten Headless-Browser. So werden Browser genannt, die alle Funktionen eines Browsers bieten, dabei aber über keine graphische Ausgabe verfügen. Sie bieten sich also vor allem für eine programmatische Verwendung an \citep[Vgl.][]{Hidayat13}.
 
 \begin{figure}[H]
 	\begin{center}
@@ -122,7 +122,7 @@ Dadurch wird der Titel der Testseite auf der Konsole ausgegeben. Auf ähnlich ei
 	\end{center}
 \end{figure}
 
-Selenium-Driver dient ebenfalls dazu, die Http-Schnittstelle einer Webanwendung zu testen. Im Gegensatz zu Phantom-JS implementiert dieses Tool aber keinen Browser sondern ist in der Lage über die sogenannte Web-Driver-Schnittstelle verschiedene native Browser "fernzusteuern". Dadurch lässt sich die Webanwendung tatsächlich in der echten Zielumgebung testen. Auf dem Entwicklungsrechner muss dafür lediglich der entsprechende Browser und ein entsprechender Treiber für Selenium-Driver installiert sein. Es gibt hierbei Treiber für Firefox, Internet Explorer, Google Chrome, Safari uvm.
+Selenium-Driver dient ebenfalls dazu, die Http-Schnittstelle einer Webanwendung zu testen. Im Gegensatz zu Phantom-JS implementiert dieses Tool aber keinen Browser sondern ist in der Lage über die sogenannte Web-Driver-Schnittstelle verschiedene native Browser "fernzusteuern". Dadurch lässt sich die Webanwendung tatsächlich in der echten Zielumgebung testen. Auf dem Entwicklungsrechner muss dafür lediglich der entsprechende Browser und ein entsprechender Treiber für Selenium-Driver installiert sein. Es gibt hierbei Treiber für Firefox, Internet Explorer, Google Chrome, Safari uvm. \citep[Vgl.][]{Selenium13}.
 
 \begin{figure}[H]
 	\begin{center}
@@ -136,7 +136,7 @@ Selenium-Driver dient ebenfalls dazu, die Http-Schnittstelle einer Webanwendung 
 
 Wir haben uns nun einige Frameworks, die grundsätzlich Modul- und Integrationstests mit Javascript ermöglichen. Bislang haben aber zumindest die Modultest-Frameworks noch keine Möglichkeit aufgezeigt, wie man Tests nicht nur automatisch auf der Konsole (z.B. über einen Headless-Browser) sondern auch automatisch in verschiedenen Browsern ausführen kann. Dies erforderte bislang immer das anlegen einer HTML-Datei, die man manuell in einem Browser öffnet. Hier kommen nun Tools ins Spiel, die genau diese Lücke füllen können.
 
-\subsubsection{Browserfernsteuerung}
+\subsubsection{JsTestDriver}
 
 JsTestDriver ist ein Java-Tool, mit dem man Modultests automatisch an Browser schicken kann, um sie ausführen zu lassen. Dazu wird zunächst mit Hilfe des Tools ein Webserver gestartet:
 
@@ -175,8 +175,18 @@ Zu guter Letzt startet man die eigentlichen Tests in den Browsern und lässt das
 Damit kann ein Entwickler nun zum Beispiel zu Beginn seines Arbeitstages einmalig bestimmte Browser auf dem JsTestDriver-Server registrieren und diese dann zum automatisierten Testen verwenden. Damit ist grundsätzlich die Möglichkeit für \ac{TDD} gegeben. Ein Punkte bleibt allerdings weiterhin offen: Jeder Test-Browser muss auf irgendeine Art und Weise vom Entwickler auf seinem JsTestDriver-Server registriert werden.
 
 \subsubsection{Browser-Mocking}
+Ein Nachteil der Browser-Fernsteuerung mit Hilfe von Selenium-Driver bzw. JsTestDriver ist die lange Ausführungsdauer der Tests. So müssen der zu testende Code, die einzelnen Testfälle und die Testergebnisse zwischen dem Testrunner und dem Browser übermittelt werden. Eventuell greift der Code sogar auf das \ac{DOM} oder die Rendering-Engine des Browsers zu. Je nach Anzahl der Testfälle kann die Ausführungsdauern dabei so weit ansteigen, dass ein effektives \ac{TDD} nicht mehr möglich ist. Es lohnt sich deshalb, die einzelnen Tests so weit wie möglich ohne solche nativen Browser-APIs zu formulieren. Hier bietet sich das Mocken von einzelnen Komponenten an. Da Javascript das Überschreiben von Systemvariablen und Funktionen erlaubt, gestaltet sich das Mocken der Browser-APIs sehr einfach. Ein Test kann zur Laufzeit beliebige Objekte und Methoden anstelle der Browser-API definieren, die sich genau so verhalten wie es der Tests erwartet. So können sogar teure HTTP-Aufrufe mit der XMLHttpRequest-Komponente (Stichwort AJAX) o.ä. emuliert werden, ohne wirklich die echte Browser-API zu verwenden. Der folgende Code implementiert bzw. überschreibt z.B. die native Browser-Funktion 'alert', mit der normalerweise ein Hinweisfenster im Browser geöffnet wird:
+
+\begin{figure}[H]
+	\begin{center}
+		\javascriptfile{codebeispiele/alert.js}
+		\caption{Mocken der 'alert'-Funktion}
+		\label{code:mocking}
+	\end{center}
+\end{figure}
 
 \subsection{Behaviour Driven Development}
+Das UnitTest-Framework Jasmine ermöglicht es, die Definition der Tests so zu formulieren, dass sie nicht nur für Entwickler sondern auch für Kunden oder für Produktmanager verständlich sind. Wenn man die Tests entsprechend gut formuliert, lassen sie sich wie Prosa-Sätze lesen \citep[Vgl.][]{Pivotal13}. Die Testfälle werden aber immer noch als Javascript-Code erfasst. Jasmine verzichtet also im Gegensatz zu BDD-Tools anderer Sprachen auf die Einführung einer eigenständigen \ac{DSL}.
 
 \subsection{Continous Integration}
 
@@ -192,7 +202,7 @@ Eine Möglichkeit der Durchführung von \ac{CI} erscheint mit JsTestDriver zunä
 	\end{center}
 \end{figure}
 
-Karma ist ein sehr neues Tool, dass einen ähnlichen Ansatz wie JsTestDriver verfolgt, dabei aber zusätzliche Funktionen mit sich bringt, die die Einführung von \ac{CI} vereinfachen. Grundsätzlich bietet es auch die Möglichkeit, beliebige Modultest-Frameworks zu verwenden und diese auf verschiedenen Browsern auszuführen. Die Integration von neuen Frameworks bzw. Browsern läuft auf Basis von Plugins, die meist von der sehr aktiven Community bereitgestellt werden. So sind inzwischen sehr praktische Plugins entstanden, mit denen man direkt (ohne den fragilen Umweg über Selenium-Driver), über die Web-Driver Schnittstelle Browser fernsteuern kann, um die Tests auf ihnen auszuführen. Außerdem ist Karma auch in der Lage andere Dateien (z.B. Bilder oder HTML-Dateien) an die Test-Browser auszuliefern. Ein weiterer Vorteil gegebenüber JsTestDriver ist, dass Karma in der Lage ist, die konfigurierten Javascript-Dateien zu überwachen und bei jeglicher änderung sofort Tests auszuführen. Dies erleichtert auch das \ac{TDD}:
+Karma ist ein sehr neues Tool, dass einen ähnlichen Ansatz wie JsTestDriver verfolgt, dabei aber zusätzliche Funktionen mit sich bringt, die die Einführung von \ac{CI} vereinfachen. Grundsätzlich bietet es auch die Möglichkeit, beliebige Modultest-Frameworks zu verwenden und diese auf verschiedenen Browsern auszuführen. Die Integration von neuen Frameworks bzw. Browsern läuft auf Basis von Plugins, die meist von der sehr aktiven Community bereitgestellt werden. So sind inzwischen sehr praktische Plugins entstanden, mit denen man direkt (ohne den fragilen Umweg über Selenium-Driver), über die Web-Driver Schnittstelle Browser fernsteuern kann, um die Tests auf ihnen auszuführen. Außerdem ist Karma auch in der Lage andere Dateien (z.B. Bilder oder HTML-Dateien) an die Test-Browser auszuliefern. Ein weiterer Vorteil gegebenüber JsTestDriver ist, dass Karma in der Lage ist, die konfigurierten Javascript-Dateien zu überwachen und bei jeglicher änderung sofort Tests auszuführen \citep[Vgl][]{Google13-01}. Dies erleichtert auch das \ac{TDD}:
 
 \begin{figure}[H]
 	\begin{center}
@@ -222,9 +232,9 @@ Nun kann man die Test-überwachung über einen einfache Konsolen-Befehl starten.
 	\end{center}
 \end{figure}
 
-Bei der heutigen Vielfalt an Browsern und Plattformen wäre es sehr aufwändig und wenig effizient, wenn jeder Entwickler bzw. jede Softwarefirma eine vollständige Testumgebung aufbaut. Dies hat unter anderem auch der Anbieter SauceLabs erkannt und stellt als Cloud-Service-Lösung gegen eine vergleichbar günstige Nutzungsgebühr beliebige Testsysteme auf Abruf zur Verfügung.
+Bei der heutigen Vielfalt an Browsern und Plattformen wäre es sehr aufwändig und wenig effizient, wenn jeder Entwickler bzw. jede Softwarefirma eine vollständige Testumgebung aufbaut \citep[Vgl.][]{Nguyen13}. Dies hat unter anderem auch der Anbieter SauceLabs erkannt und stellt als Cloud-Service-Lösung gegen eine vergleichbar günstige Nutzungsgebühr beliebige Testsysteme auf Abruf zur Verfügung.
 
-Verwendet man Karma, so reicht die Installation des Plugins "karma-sauce-launcher" aus, um Tests direkt in der SauceLabs-Cloud auszuführen:
+Verwendet man Karma, so reicht die Installation des Plugins karma-sauce-launcher aus, um Tests direkt in der SauceLabs-Cloud auszuführen:
 
 \begin{figure}[H]
 	\begin{center}

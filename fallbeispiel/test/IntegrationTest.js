@@ -1,1 +1,0 @@
-describe("A full Calculator", function() {

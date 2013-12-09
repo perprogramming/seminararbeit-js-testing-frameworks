@@ -9,7 +9,7 @@ describe("HtmlInputOperantSource", function() {
         var operantSource = new HtmlInputOperantSource(htmlInput);
         expect(operantSource.get()).toBeNaN();
     });
-    it("will make floats to integers by stripping everything after the dot", function() {
+    it("will make floats to next lower integer", function() {
         var htmlInput = {value: 2.7};
         var operantSource = new HtmlInputOperantSource(htmlInput);
         expect(operantSource.get()).toBe(2);

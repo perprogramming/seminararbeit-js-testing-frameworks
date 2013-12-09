@@ -1,4 +1,9 @@
-var Calculator = function(firstOperantSource, secondOperantSource, operation, resultTarget) {
+var Calculator = function(
+    firstOperantSource,
+    secondOperantSource,
+    operation,
+    resultTarget
+) {
     this.firstOperantSource = firstOperantSource;
     this.secondOperantSource = secondOperantSource;
     this.operation = operation;

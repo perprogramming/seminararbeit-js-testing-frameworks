@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <script src="Addition.js"></script>
+        <script src="Calculator.js"></script>
+        <script src="HtmlInputOperantSource.js"></script>
+        <script src="HtmlDivResultTarget.js"></script>
+    </head>
+    <body>
+        <div>
+            <input type="text" id="first-operant-source" /> +
+            <input type="text" id="second-operant-source" /> =
+            <div id="result-target"></div>
+            <button id="calculate">Calculate</button>
+        </div>
+        <script>
+            var Calculator = new Calculator(
+                new HtmlInputOperantSource(
+                    document.getElementById(
+                        'first-operant-source'
+                    )
+                ),
+                new HtmlInputOperantSource(
+                    document.getElementById(
+                        'first-operant-source'
+                    )
+                ),
+                new Addition(),
+                new HtmlDivResultTarget(
+                    document.getElementById('result-target')
+                )
+            );
+            document.getElementById('calculate').onclick = function() {
+                Calculator.calculate();
+            };
+        </script>
+    </body>
+</html>
